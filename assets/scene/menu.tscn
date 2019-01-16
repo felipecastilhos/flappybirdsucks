@@ -4,7 +4,7 @@
 [ext_resource path="res://assets/images/title.jpg" type="Texture" id=2]
 [ext_resource path="res://assets/images/button-play.png" type="Texture" id=3]
 
-[node name="Node2D" type="Node2D" index="0"]
+[node name="menu" type="Node2D" index="0"]
 
 [node name="canvas" type="CanvasModulate" parent="." index="0"]
 

@@ -1,0 +1,147 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/images/Background.png" type="Texture" id=1]
+[ext_resource path="res://assets/images/Floor.png" type="Texture" id=2]
+[ext_resource path="res://assets/fonts/04B_19__.TTF" type="DynamicFontData" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+
+size = 55
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 3 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 12.6986, 10 )
+
+[node name="game" type="Node2D" index="0"]
+
+[node name="bg_parallax" type="ParallaxBackground" parent="." index="0"]
+
+layer = -1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+scroll_offset = Vector2( 0, 0 )
+scroll_base_offset = Vector2( 0, 0 )
+scroll_base_scale = Vector2( 1, 1 )
+scroll_limit_begin = Vector2( 0, 0 )
+scroll_limit_end = Vector2( 0, 0 )
+scroll_ignore_camera_zoom = true
+
+[node name="bg_parallax_layer" type="ParallaxLayer" parent="bg_parallax" index="0"]
+
+motion_scale = Vector2( 1, 1 )
+motion_offset = Vector2( 0, 0 )
+motion_mirroring = Vector2( 374.4, 0 )
+_sections_unfolded = [ "Motion" ]
+
+[node name="bg" type="Sprite" parent="bg_parallax/bg_parallax_layer" index="0"]
+
+position = Vector2( -0.450653, -10.1528 )
+scale = Vector2( 2.6, 2.6 )
+texture = ExtResource( 1 )
+centered = false
+_sections_unfolded = [ "Offset", "Transform" ]
+
+[node name="ground_parallax2" type="ParallaxBackground" parent="." index="1"]
+
+editor/display_folded = true
+layer = 0
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+scroll_offset = Vector2( 0, 0 )
+scroll_base_offset = Vector2( 0, 0 )
+scroll_base_scale = Vector2( 1, 1 )
+scroll_limit_begin = Vector2( 0, 0 )
+scroll_limit_end = Vector2( 0, 0 )
+scroll_ignore_camera_zoom = true
+
+[node name="ground_parallax_layer" type="ParallaxLayer" parent="ground_parallax2" index="0"]
+
+motion_scale = Vector2( 1, 1 )
+motion_offset = Vector2( 0, 0 )
+motion_mirroring = Vector2( 336, 0 )
+_sections_unfolded = [ "Motion", "Visibility", "Z Index" ]
+
+[node name="ground" type="Sprite" parent="ground_parallax2/ground_parallax_layer" index="0"]
+
+position = Vector2( -0.0626526, 493.313 )
+scale = Vector2( 2.6, 2.6 )
+texture = ExtResource( 2 )
+centered = false
+_sections_unfolded = [ "Offset", "Transform", "Visibility" ]
+
+[node name="hud" type="CanvasLayer" parent="." index="2"]
+
+editor/display_folded = true
+layer = 1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+
+[node name="score" type="Label" parent="hud" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 9.0
+margin_top = 2.0
+margin_right = 49.0
+margin_bottom = 72.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 2
+custom_constants/shadow_offset_y = 2
+text = "0"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_colors", "custom_constants", "custom_fonts" ]
+
+[node name="limits" type="StaticBody2D" parent="." index="3"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="top" type="CollisionShape2D" parent="limits" index="0"]
+
+position = Vector2( 179.768, -9.88659 )
+scale = Vector2( 14.2315, 1 )
+shape = SubResource( 2 )
+
+[node name="bottom" type="CollisionShape2D" parent="limits" index="1"]
+
+position = Vector2( 180.091, 503.341 )
+scale = Vector2( 14.2315, 1 )
+shape = SubResource( 2 )
+
+[node name="spawn_pipes" type="Node2D" parent="." index="4"]
+
+[node name="Timer" type="Timer" parent="spawn_pipes" index="0"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = false
+autostart = false
+
+
