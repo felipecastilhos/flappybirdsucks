@@ -18,7 +18,7 @@ extents = Vector2( 32.8322, 34.0618 )
 custom_solver_bias = 0.0
 extents = Vector2( 10, 109.024 )
 
-[node name="pipes" type="Node2D"]
+[node name="pipes" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 
@@ -69,7 +69,11 @@ audio_bus_name = "Master"
 
 [node name="collision_score" type="CollisionShape2D" parent="area_score" index="0"]
 
-position = Vector2( 0, 352.565 )
+position = Vector2( 34.9604, 347.71 )
 shape = SubResource( 3 )
+
+[connection signal="body_entered" from="area_hit" to="." method="_on_area_hit_body_entered"]
+
+[connection signal="body_entered" from="area_score" to="." method="_on_area_score_body_entered"]
 
 

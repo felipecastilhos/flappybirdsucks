@@ -5,16 +5,12 @@ var START_POS_X = 400
 var MIN_START_Y = -220
 var MAX_START_Y = -10
 
-
-
 func _ready():
 	randomize()
 	pass
 
-
 func _on_timer_timeout():
 	create_pipe()
-
 
 func create_pipe():
 	var clone_pipe = pipe.instance()

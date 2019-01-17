@@ -14,3 +14,14 @@ func _process(delta):
 		
 		if position.x < -100:
 			queue_free()
+
+func _on_area_hit_body_entered(body):
+	if game.state == game.GAME_STATE.PLAYING:
+		if body.name == "bird":
+			game.game_over()	
+
+
+func _on_area_score_body_entered(body):
+	if game.state == game.GAME_STATE.PLAYING:
+		if body.name == "bird":
+			game.count_score()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://assets/scene/game.gd" type="Script" id=1]
 [ext_resource path="res://assets/images/Background.png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://assets/fonts/04B_19__.TTF" type="DynamicFontData" id=4]
 [ext_resource path="res://assets/scripts/spawn_pipes.gd" type="Script" id=5]
 [ext_resource path="res://assets/scene/bird.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/sounds/Point.ogg" type="AudioStream" id=7]
 
 [sub_resource type="DynamicFont" id=1]
 
@@ -20,7 +21,7 @@ _sections_unfolded = [ "Font", "Settings" ]
 custom_solver_bias = 0.0
 extents = Vector2( 12.6986, 10 )
 
-[node name="game" type="Node2D" index="0"]
+[node name="game" type="Node2D"]
 
 script = ExtResource( 1 )
 
@@ -143,6 +144,7 @@ shape = SubResource( 2 )
 
 [node name="spawn_pipes" type="Node2D" parent="." index="4"]
 
+editor/display_folded = true
 script = ExtResource( 5 )
 
 [node name="timer" type="Timer" parent="spawn_pipes" index="0"]
@@ -155,6 +157,17 @@ autostart = true
 [node name="bird" parent="." index="5" instance=ExtResource( 6 )]
 
 position = Vector2( 80, 470 )
+
+[node name="point_fx" type="AudioStreamPlayer2D" parent="." index="6"]
+
+stream = ExtResource( 7 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
 
 [connection signal="timeout" from="spawn_pipes/timer" to="spawn_pipes" method="_on_timer_timeout"]
 

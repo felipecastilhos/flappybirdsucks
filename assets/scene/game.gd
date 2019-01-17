@@ -16,6 +16,7 @@ func count_score():
 
 func update_hud_score():
 	$hud/score.text = str(score)	
+	$point_fx.play()
 
 func game_over(): 
 	state = GAME_STATE.STOP
