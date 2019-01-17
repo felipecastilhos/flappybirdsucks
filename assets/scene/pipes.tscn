@@ -17,7 +17,7 @@ extents = Vector2( 32.8322, 34.0618 )
 custom_solver_bias = 0.0
 extents = Vector2( 10, 109.024 )
 
-[node name="pipes" type="Node2D" index="0"]
+[node name="pipes" type="Node2D"]
 
 [node name="top" type="Sprite" parent="." index="0"]
 
