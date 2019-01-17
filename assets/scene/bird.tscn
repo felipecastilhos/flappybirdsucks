@@ -21,7 +21,7 @@ animations = [ {
 custom_solver_bias = 0.0
 radius = 18.6869
 
-[node name="bird" type="RigidBody2D" index="0"]
+[node name="bird" type="RigidBody2D"]
 
 input_pickable = false
 collision_layer = 1
@@ -48,7 +48,7 @@ script = ExtResource( 1 )
 scale = Vector2( 3, 3 )
 frames = SubResource( 1 )
 animation = "fly"
-frame = 2
+frame = 1
 playing = true
 _sections_unfolded = [ "Transform" ]
 
