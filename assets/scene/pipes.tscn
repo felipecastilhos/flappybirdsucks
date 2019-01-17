@@ -1,0 +1,72 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/images/Pipe.png" type="Texture" id=1]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 36.9762, 238.511 )
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 32.8322, 34.0618 )
+
+[sub_resource type="RectangleShape2D" id=3]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 109.024 )
+
+[node name="pipes" type="Node2D" index="0"]
+
+[node name="top" type="Sprite" parent="." index="0"]
+
+scale = Vector2( 3, 3 )
+texture = ExtResource( 1 )
+flip_v = true
+_sections_unfolded = [ "Offset", "Transform", "Visibility" ]
+
+[node name="bottom" type="Sprite" parent="." index="1"]
+
+position = Vector2( 0, 700 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 1 )
+_sections_unfolded = [ "Offset", "Transform", "Z Index" ]
+
+[node name="area_hit" type="Area2D" parent="." index="2"]
+
+editor/display_folded = true
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="collision_top" type="CollisionShape2D" parent="area_hit" index="0"]
+
+shape = SubResource( 1 )
+
+[node name="collision_bottom" type="CollisionShape2D" parent="area_hit" index="1"]
+
+position = Vector2( -1.07047, 700.075 )
+scale = Vector2( 1, 7.02671 )
+shape = SubResource( 2 )
+
+[node name="area_score" type="Area2D" parent="." index="3"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="collision_score" type="CollisionShape2D" parent="area_score" index="0"]
+
+position = Vector2( 0, 352.565 )
+shape = SubResource( 3 )
+
+
