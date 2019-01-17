@@ -18,12 +18,12 @@ _sections_unfolded = [ "Font", "Settings" ]
 custom_solver_bias = 0.0
 extents = Vector2( 12.6986, 10 )
 
-[node name="game" type="Node2D"]
+[node name="game" type="Node2D" index="0"]
 
 [node name="bg_parallax" type="ParallaxBackground" parent="." index="0"]
 
 editor/display_folded = true
-layer = -1
+layer = -2
 offset = Vector2( 0, 0 )
 rotation = 0.0
 scale = Vector2( 1, 1 )
@@ -53,7 +53,7 @@ _sections_unfolded = [ "Offset", "Transform" ]
 [node name="ground_parallax2" type="ParallaxBackground" parent="." index="1"]
 
 editor/display_folded = true
-layer = 0
+layer = -1
 offset = Vector2( 0, 0 )
 rotation = 0.0
 scale = Vector2( 1, 1 )
